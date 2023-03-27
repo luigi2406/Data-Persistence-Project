@@ -72,5 +72,13 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+		if (HighscoreManager.Instance != null)
+		{
+			if (m_Points > HighscoreManager.Instance.highscore.score)
+			{
+                HighscoreManager.Instance.SaveHighscore(m_Points);
+			}
+		}
     }
 }
